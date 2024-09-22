@@ -25,3 +25,47 @@ body {
     text-wrap: balance;
   }
 }
+
+
+.heading-title {
+  color: #1A65C1;
+  font-size: 37px;
+  font-weight: 600;
+  line-height: 1.3em;
+  letter-spacing: 1px;
+  font: "Abril Fatface", Sans-serif;
+}
+
+
+.text-heading {
+  color: #54595F;
+    font-family: "Lato", Sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    text-transform: none;
+    line-height: 1.5em;
+    letter-spacing: 0px;
+}
+
+.divider-text {
+  color: #54595F;
+  font-size: 50px;
+  font-weight: normal;
+}
+
+.image-box-description {
+    color: #54595F;
+    font-family: "Lato", Sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+section {
+  max-width: 1140px;
+}
+
+.divider-color {
+  color: rgba(210, 74, 61, 0.29); 
+  border-color: rgba(210, 74, 61, 0.29);
+} 
+  
