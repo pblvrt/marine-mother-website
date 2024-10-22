@@ -7,6 +7,7 @@
   --foreground: #171717;
 }
 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -17,7 +18,6 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
@@ -33,18 +33,18 @@ body {
   font-weight: 600;
   line-height: 1.3em;
   letter-spacing: 1px;
-  font: "Abril Fatface", Sans-serif;
+  @apply font-abril;
 }
 
 
 .text-heading {
   color: #54595F;
-    font-family: "Lato", Sans-serif;
-    font-size: 22px;
-    font-weight: 300;
-    text-transform: none;
-    line-height: 1.5em;
-    letter-spacing: 0px;
+  font-size: 22px;
+  font-weight: 300;
+  text-transform: none;
+  line-height: 1.5em;
+  letter-spacing: 0px;
+  @apply font-lato;
 }
 
 .divider-text {
@@ -55,9 +55,21 @@ body {
 
 .image-box-description {
     color: #54595F;
-    font-family: "Lato", Sans-serif;
     font-size: 18px;
-    font-weight: 300;
+    @apply font-lato;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.hero-image-zoom {
+  animation: zoomIn 10s ease-in-out infinite alternate;
 }
 
 section {
@@ -69,3 +81,21 @@ section {
   border-color: rgba(210, 74, 61, 0.29);
 } 
   
+.gradient {
+  background: transparent;
+  background-image: linear-gradient(180deg, rgba(26, 101, 193, 0.3) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.5) 100%);
+}
+
+.leasson-header {
+    color: #1A65C1;
+    text-shadow: 4px 4px 0px #FFF0C9;
+    @apply font-abril;
+  font-weight: 600;
+  line-height: 1em;
+  letter-spacing: 1px;
+
+}
+
+.hero-image {
+  background-image: "louvres04.jpeg";
+}
