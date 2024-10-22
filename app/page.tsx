@@ -2,6 +2,7 @@ import SectionHeader from "./Components/SectionHeader"; // Adjust the import pat
 import ContentGrid, { AboutBlock } from "./Components/ContentGrid"; // Adjust the import path as necessary
 import ReviewsCarousel from "./Components/Reviews"; // Adjust the import path as necessary
 import HeroImage from "./Components/Hero";
+import Navigation from "./Components/Navigation";
 const reviews = [
   {
     author: "John Doe",
@@ -10,6 +11,7 @@ const reviews = [
   { author: "Jane Smith", text: "Nathalie is a fantastic teacher." },
   { author: "Alice Johnson", text: "Learned so much in a short time!" },
 ];
+
 const lessonData = [
   {
     title: "In Person",
@@ -89,19 +91,21 @@ const additionalServicesData = [
 
 export default function Home() {
   return (
-    <div className=" space-y-20">
-      <div id="navigation"></div>
+    <div className="">
+      <Navigation />
       <HeroImage />
-      <section className="flex flex-col mx-auto">
-        <div className="flex flex-row justify-between items-center space-x-4">
-          <h1 className="uppercase divider-text">About</h1>
-          <div className=" border-4 w-full divider-color"></div>
+      <section id="about" className="flex flex-col mx-auto px-4 mt-12">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+          <h1 className="uppercase divider-text text-center md:text-left font-abril">
+            About
+          </h1>
+          <div className="border-4 w-full divider-color"></div>
         </div>
-        <div className="flex flex-row justify-between space-x-4 my-8">
-          <div className="heading-title md:w-[40%]">
+        <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4 my-8">
+          <div className="heading-title md:w-[40%] text-center md:text-left">
             No matter your level or your age, learn French with Nathalie
           </div>
-          <div className=" text-heading md:w-[60%]">
+          <div className="text-heading md:w-[60%] text-center md:text-left">
             Indeed, there are many reasons to learn French; it can be to travel
             to France, the #1 tourist destination worldwide, or other French
             speaking countries (54!) or to boost your career, your academic
@@ -114,16 +118,18 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="flex flex-col mx-auto mt-8">
-        <div className="flex flex-row justify-between items-center space-x-4">
-          <h1 className="uppercase divider-text font-abril">Lessons</h1>
-          <div className=" border-4 w-full divider-color"></div>
+      <section id="lessons" className="flex flex-col mx-auto mt-12 px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+          <h1 className="uppercase divider-text font-abril text-center md:text-left">
+            Lessons
+          </h1>
+          <div className="border-4 w-full divider-color"></div>
         </div>
-        <div className="flex flex-row-reverse justify-between space-x-4 my-8">
-          <div className="heading-title md:w-[40%]">
+        <div className="flex flex-col md:flex-row-reverse justify-between space-y-4 md:space-y-0 md:space-x-4 my-8">
+          <div className="heading-title md:w-[40%] text-center md:text-left">
             We’re all different, and so is the way we learn.
           </div>
-          <div className="text-heading lato md:w-[60%]">
+          <div className="text-heading lato md:w-[60%] text-center md:text-left">
             With Nathalie, lessons will be tailored to your age, level,
             preferred learning style, and pace to ensure that achieving the
             fluency you’re looking for is an enjoyable experience every step of
@@ -135,16 +141,18 @@ export default function Home() {
         <SectionHeader number={2} text="Second, choose your focus:" />
         <ContentGrid data={focusData} />
         <SectionHeader number={3} text="Lastly, a few extras:" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full p-16 gradient">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full p-16 gradient">
           {additionalServicesData.map((item, index) => (
             <AboutBlock key={index} {...item} />
           ))}
         </div>
       </section>
-      <section className="flex flex-col mx-auto mt-8">
-        <div className="flex flex-row justify-between items-center space-x-4">
-          <h1 className="uppercase divider-text font-abril"> Reviews</h1>
-          <div className=" border-4 w-full divider-color"></div>
+      <section id="reviews" className="flex flex-col mx-auto mt-12 px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+          <h1 className="uppercase divider-text font-abril text-center md:text-left">
+            Reviews
+          </h1>
+          <div className="border-4 w-full divider-color"></div>
         </div>
         <ReviewsCarousel reviews={reviews} />
       </section>

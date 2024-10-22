@@ -16,24 +16,34 @@ interface ReviewsCarouselProps {
 }
 
 const ReviewsCarousel: React.FC<ReviewsCarouselProps> = ({ reviews }) => {
- const settings = {
+  const settings = {
     dots: true,
     fade: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    waitForAnimate: false
+    waitForAnimate: false,
+    responsive: [
+      {
+        breakpoint: 768, // Mobile breakpoint
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false, // Hide arrows on mobile for a cleaner look
+        }
+      }
+    ]
   };
 
   return (
-    <div className="mx-auto lg:max-w-[700px] p-8">
+    <div className="mx-auto max-w-full p-4 lg:max-w-[700px] lg:p-8">
       <Slider {...settings}>
         {reviews.map((review, index) => (
-          <div key={index} className="p-4  h-full">
-            <div className="bg-white p-6 h-full border shadow-lg rounded-lg">
-              <p className="image-box-description text-center ">{review.text}</p>
-              <p className="text-right mt-4 image-box-description">- {review.author}</p>
+          <div key={index} className="p-2 h-full lg:p-4">
+            <div className="bg-white p-4 h-full border shadow-lg rounded-lg lg:p-6">
+              <p className="image-box-description text-center">{review.text}</p>
+              <p className="text-right mt-2 image-box-description lg:mt-4">- {review.author}</p>
               <StarRating />
             </div>
           </div>
@@ -42,5 +52,4 @@ const ReviewsCarousel: React.FC<ReviewsCarouselProps> = ({ reviews }) => {
     </div>
   );
 };
-
 export default ReviewsCarousel;
