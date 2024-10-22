@@ -22,7 +22,7 @@ const Navigation: React.FC = () => {
               </Link>
             </div>
             <div className="hidden sm:flex sm:ml-auto">
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 items-center">
                 <Link href="#about">
                   <span className="text-gray-700 hover:text-blue-500">About</span>
                 </Link>
