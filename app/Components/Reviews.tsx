@@ -24,6 +24,8 @@ const ReviewsCarousel: React.FC<ReviewsCarouselProps> = ({ reviews }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     waitForAnimate: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
     responsive: [
       {
         breakpoint: 768, // Mobile breakpoint
@@ -42,7 +44,7 @@ const ReviewsCarousel: React.FC<ReviewsCarouselProps> = ({ reviews }) => {
         {reviews.map((review, index) => (
           <div key={index} className="p-2 h-full lg:p-4">
             <div className="bg-white p-4 h-full border shadow-lg rounded-lg lg:p-6">
-              <p className="image-box-description text-center">{review.text}</p>
+              <p className="font-lato text-[#54595F] text-2xl text-center">{review.text}</p>
               <p className="text-right mt-2 image-box-description lg:mt-4">- {review.author}</p>
               <StarRating />
             </div>

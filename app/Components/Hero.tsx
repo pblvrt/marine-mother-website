@@ -9,6 +9,8 @@ import logo from "../../public/logo3.png";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PrimaryButton from './PrimaryButton';
+
 const images = [
   louvre,
   croissant,
@@ -40,6 +42,9 @@ const HeroImage: React.FC = () => {
         }}
       />
       <Image src={logo} alt="logo" className=" z-50" width={800} height={450}/>
+      <div className="mt-8 z-50">
+        <PrimaryButton text="Book Now" />
+      </div>
     </div>
   );
 };

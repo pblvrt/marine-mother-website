@@ -3,13 +3,26 @@ import ContentGrid, { AboutBlock } from "./Components/ContentGrid"; // Adjust th
 import ReviewsCarousel from "./Components/Reviews"; // Adjust the import path as necessary
 import HeroImage from "./Components/Hero";
 import Navigation from "./Components/Navigation";
+import Image from "next/image";
+import Link from "next/link"; // Make sure this is also imported
+
 const reviews = [
   {
-    author: "John Doe",
-    text: " My French has improved from absolute beginner to an advanced level speaker.  I continued to build on the foundation that Nathalie has given me, and enrolled at the University of NC, Charlotte where I earned a BA in French last December. ",
+    author: "Thomas S. (72 / RETIRED)",
+    text: "After only 2 years with Nathalie, I am capable of carrying everyday conversations in French, and felt confident enough to spend 4 immersive weeks in France.",
   },
-  { author: "Jane Smith", text: "Nathalie is a fantastic teacher." },
-  { author: "Alice Johnson", text: "Learned so much in a short time!" },
+  {
+    author: "Dolah S. (57 / RECRUITER)",
+    text: "Nathalie cares that you understand the reasons behind the grammar rules, kindly correcting you while you practice conversation; this enabled me to reach professional fluency.",
+  },
+  {
+    author: "Carolyn M. (65 / HOMEMAKER)",
+    text: "I was searching for a native tutor, and found Nathalie. She's patient, organized, flexible and always finds practical topics as the basis of our lessons!",
+  },
+  {
+    author: "Sasha N. (14 / STUDENT)",
+    text: "Nathalie's constant optimism and encouragement make the challenge of learning a language, extremely fun and inspiring.",
+  },
 ];
 
 const lessonData = [
@@ -91,7 +104,8 @@ const additionalServicesData = [
 
 export default function Home() {
   return (
-    <div className="">
+    <main>
+      <h1 className="sr-only">French Tutor in Buffalo NY - Private French Lessons</h1>
       <Navigation />
       <HeroImage />
       <section id="about" className="flex flex-col mx-auto px-4 mt-12">
@@ -156,6 +170,136 @@ export default function Home() {
         </div>
         <ReviewsCarousel reviews={reviews} />
       </section>
-    </div>
+      <section id="pricing" className="flex flex-col mx-auto mt-12 px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+          <h1 className="uppercase divider-text font-abril text-center md:text-left">
+            Pricing
+          </h1>
+          <div className="border-4 w-full divider-color"></div>
+        </div>
+
+        {/* <div className="text-center my-16">
+          <div className="heading-title text-gray-600">
+            Choose the format that works best for you
+          </div>
+        </div> */}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full my-16">
+          {/* Single */}
+          <div className="flex flex-col items-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h2 className="font-abril text-2xl mb-6 text-gray-600">Single</h2>
+            <div className="space-y-4 text-center">
+              <div className="pricing-option">
+                <p className="text-lg font-bold text-gray-600">60 minutes</p>
+                <p className="text-3xl font-abril text-blue-600">$58</p>
+              </div>
+              <div className="pricing-option mt-4">
+                <p className="text-lg font-bold text-gray-600">90 minutes</p>
+                <p className="text-3xl font-abril text-blue-600">$90</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Duo */}
+          <div className="flex flex-col items-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h2 className="font-abril text-2xl mb-6 text-gray-600">Duo</h2>
+            <div className="space-y-4 text-center">
+              <div className="pricing-option">
+                <p className="text-lg font-bold text-gray-600">60 minutes</p>
+                <p className="text-3xl font-abril text-blue-600">$35</p>
+                <p className="text-sm text-gray-600">per person</p>
+              </div>
+              <div className="pricing-option mt-4">
+                <p className="text-lg font-bold text-gray-600">90 minutes</p>
+                <p className="text-3xl font-abril text-blue-600">$45</p>
+                <p className="text-sm text-gray-600">per person</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Trio */}
+          <div className="flex flex-col items-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h2 className="font-abril text-2xl mb-6 text-gray-600">Trio</h2>
+            <div className="space-y-4 text-center">
+              <div className="pricing-option">
+                <p className="text-lg font-bold text-gray-600">90 minutes</p>
+                <p className="text-3xl font-abril text-blue-600">$30</p>
+                <p className="text-sm text-gray-600">per person</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="md:mt-16 text-center p-6 bg-gray-50 rounded-lg">
+          <p className="text-lg w text-gray-600">
+            CANCELLATION POLICY: Please notify at least 24 hours in advance to avoid a $30 fee.
+          </p>
+        </div>
+      </section>
+      <section id="contact" className="flex flex-col mx-auto mt-12 px-4 pb-32 max-h-screen">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+          <h1 className="uppercase divider-text font-abril text-center md:text-left">
+            Contact
+          </h1>
+          <div className="border-4 w-full divider-color"></div>
+        </div>
+
+        <div className="text-center my-16">
+          <div className="heading-title">
+            Ready to learn French? Reach out to Nathalie!
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 w-full py-8">
+          <div className="flex flex-col items-center space-y-4">
+            <div className="w-16 h-16 flex items-center justify-center">
+              <Image src="/mail.png" alt="Email" width={48} height={48} />
+            </div>
+            <h3 className="font-abril text-xl text-gray-600">
+              Email
+            </h3>
+            <Link
+              href="mailto:nathalie@ntft.com"
+              className="hover:text-blue-400 transition-colors text-gray-600"
+            >
+              Nathandraud@gmail.com
+            </Link>
+          </div>
+
+          <div className="flex flex-col items-center space-y-4">
+            <div className="w-16 h-16 flex items-center justify-center">
+              <Image
+                src="/communication.png"
+                alt="Social Media"
+                width={48}
+                height={48}
+              />
+            </div>
+            <h3 className="font-abril text-xl text-gray-600">Social Media</h3>
+            <div className="flex flex-col space-y-2">
+              <Link
+                href="https://www.facebook.com/ntft.french"
+                className="hover:text-blue-400 transition-colors text-gray-600"
+              >
+                Facebook
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center space-y-4">
+            <div className="w-16 h-16 flex items-center justify-center">
+              <Image src="/phone.png" alt="Phone" width={48} height={48} />
+            </div>
+            <h3 className="font-abril text-xl text-gray-600">Phone</h3>
+            <Link
+              href="tel:7165601714"
+              className="hover:text-blue-400 transition-colors text-gray-600"
+            >
+              (716) 560-1714
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

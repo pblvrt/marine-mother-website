@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import logo from "../../public/logo3.png";
 import Image from 'next/image';
+import PrimaryButton from './PrimaryButton';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,10 +30,10 @@ const Navigation: React.FC = () => {
                 <Link href="#lessons">
                   <span className="text-gray-700 hover:text-blue-500">Lessons</span>
                 </Link>
-
                 <Link href="#reviews">
                   <span className="text-gray-700 hover:text-blue-500">Reviews</span>
                 </Link>
+                <PrimaryButton text="Book now" />
               </div>
             </div>
           </div>
@@ -65,8 +66,11 @@ const Navigation: React.FC = () => {
                 <span className="block text-gray-700 hover:text-blue-500 border-b mb-2">Services</span>
               </Link>
               <Link href="#reviews">
-                <span className="block text-gray-700 hover:text-blue-500 ">Reviews</span>
+                <span className="block text-gray-700 hover:text-blue-500 border-b mb-2">Reviews</span>
               </Link>
+              <div className="pt-2">
+                <PrimaryButton text="Book now" onClick={() => setIsOpen(false)} />
+              </div>
             </div>
           </div>
         )}

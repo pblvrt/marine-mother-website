@@ -18,7 +18,7 @@ export const AboutBlock = ({
     <div className="flex flex-col space-y-4 relative  items-center">
       <Image
         src={image}
-        alt={title}
+        alt={`${title} - French Lessons Buffalo NY`}
         width={"600"}
         height={"400"}
         className="hover:scale-105 transform transition duration-500 ease-in-out"
