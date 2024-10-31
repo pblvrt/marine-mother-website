@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://yourwebsite.com/sitemap.xml 
+Sitemap: https://marine-mother-website.vercel.app/sitemap.xml 

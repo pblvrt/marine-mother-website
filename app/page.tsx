@@ -5,6 +5,7 @@ import HeroImage from "./Components/Hero";
 import Navigation from "./Components/Navigation";
 import Image from "next/image";
 import Link from "next/link"; // Make sure this is also imported
+import { generatePageMetadata } from './utils/metadata';
 
 const reviews = [
   {
@@ -101,6 +102,12 @@ const additionalServicesData = [
     image: "/business-ntft1.jpg",
   },
 ];
+
+export const metadata = generatePageMetadata({
+  title: 'French Tutor Buffalo NY | Private French Lessons',
+  description: 'Learn French with a native tutor in Buffalo, NY. Private French lessons for all levels.',
+  image: 'louvres04',
+});
 
 export default function Home() {
   return (
