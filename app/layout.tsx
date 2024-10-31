@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Nathalie French Tutor",
     images: [
       {
-        url: "/api/og?title=French Tutor Buffalo NY&image=louvres04",
+        url: `/api/og?title=${encodeURIComponent('French Tutor Buffalo NY')}&image=louvres04`,
         width: 1200,
         height: 630,
         alt: "Nathalie French Tutor - Private French Lessons in Buffalo NY",

@@ -1,16 +1,6 @@
 import { ImageResponse } from 'next/og';
-import { join } from 'path';
-import { readFileSync } from 'fs';
 
 export const runtime = 'edge';
-
-// Function to convert local image to base64
-function getLocalImage(path: string): string {
-  const imageBuffer = readFileSync(join(process.cwd(), 'public', path));
-  const base64Image = Buffer.from(imageBuffer).toString('base64');
-  const mimeType = path.endsWith('.png') ? 'image/png' : 'image/jpeg';
-  return `data:${mimeType};base64,${base64Image}`;
-}
 
 export async function GET(request: Request) {
   try {
@@ -18,18 +8,23 @@ export async function GET(request: Request) {
     const title = searchParams.get('title') || 'French Tutor Buffalo NY';
     const imageKey = searchParams.get('image') || 'louvres04'; // default image
 
-    // Map of available images
+    // Map of available images with their URLs
     const images = {
-      louvres04: getLocalImage('louvres04.jpeg'),
-      croissant: getLocalImage('croissant05.jpeg'),
-      vignoble: getLocalImage('vignoble02.jpeg'),
-      toureiffel: getLocalImage('tour-eiffel03.jpeg'),
-      notreDame: getLocalImage('notre-dame01-scaled.jpeg'),
-      logo: getLocalImage('logo3.png'),
+      louvres04: '/louvres04.jpeg',
+      croissant: '/croissant05.jpeg',
+      vignoble: '/vignoble02.jpeg',
+      toureiffel: '/tour-eiffel03.jpeg',
+      notreDame: '/notre-dame01-scaled.jpeg',
+      logo: '/logo3.png',
     };
 
     // Get the selected image or default to louvres04
     const selectedImage = images[imageKey as keyof typeof images] || images.louvres04;
+    const logoImage = images.logo;
+
+    // Fetch the images
+    const imageData = await fetch(new URL(selectedImage, request.url)).then(res => res.arrayBuffer());
+    const logoData = await fetch(new URL(logoImage, request.url)).then(res => res.arrayBuffer());
 
     return new ImageResponse(
       (
@@ -52,7 +47,7 @@ export async function GET(request: Request) {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundImage: `url(${selectedImage})`,
+              backgroundImage: `url(data:image/jpeg;base64,${Buffer.from(imageData).toString('base64')})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               opacity: 0.3,
@@ -61,7 +56,7 @@ export async function GET(request: Request) {
 
           {/* Logo */}
           <img
-            src={images.logo}
+            src={`data:image/png;base64,${Buffer.from(logoData).toString('base64')}`}
             alt="Logo"
             style={{
               width: '400px',
