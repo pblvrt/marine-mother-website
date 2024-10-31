@@ -3,7 +3,7 @@ const StructuredData: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Nathalie French Tutor",
-    image: "https://marine-mother-website.vercel.app/logo3.png",
+    image: "https://www.nathaliethefrenchtutor.com/logo3.png",
     description:
       "Private French lessons in Buffalo, NY with a native French tutor",
     address: {
@@ -17,7 +17,7 @@ const StructuredData: React.FC = () => {
       latitude: "YOUR_LATITUDE",
       longitude: "YOUR_LONGITUDE",
     },
-    url: "https://marine-mother-website.vercel.app",
+    url: "https://www.nathaliethefrenchtutor.com",
     telephone: "+17165601714",
     priceRange: "$30-$90",
   };

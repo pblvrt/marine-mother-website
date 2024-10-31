@@ -26,11 +26,13 @@ export const metadata: Metadata = {
     title: "French Tutor Buffalo NY | Private French Lessons",
     description:
       "Learn French with a native tutor in Buffalo, NY. Private French lessons for all levels.",
-    url: "https://marine-mother-website.vercel.app",
+    url: "https://www.nathaliethefrenchtutor.com",
     siteName: "Nathalie French Tutor",
     images: [
       {
-        url: `/api/og?title=${encodeURIComponent('French Tutor Buffalo NY')}&image=louvres04`,
+        url: `/api/og?title=${encodeURIComponent(
+          "French Tutor Buffalo NY"
+        )}&image=louvres04`,
         width: 1200,
         height: 630,
         alt: "Nathalie French Tutor - Private French Lessons in Buffalo NY",
@@ -47,10 +49,10 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://marine-mother-website.vercel.app",
+    canonical: "https://www.nathaliethefrenchtutor.com",
     languages: {
-      "en-US": "https://marine-mother-website.vercel.app",
-      "fr-FR": "https://marine-mother-website.vercel.app/fr",
+      "en-US": "https://www.nathaliethefrenchtutor.com",
+      "fr-FR": "https://www.nathaliethefrenchtutor.com/fr",
     },
   },
   viewport: {

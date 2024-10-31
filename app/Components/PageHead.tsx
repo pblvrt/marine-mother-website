@@ -13,7 +13,7 @@ export function generateMetadata({
   image = "/og-image.jpg",
   path = "",
 }: PageHeadProps): Metadata {
-  const baseUrl = "https://marine-mother-website.vercel.app";
+  const baseUrl = "https://www.nathaliethefrenchtutor.com";
   const fullUrl = `${baseUrl}${path}`;
   const imageUrl = image.startsWith("http") ? image : `${baseUrl}${image}`;
 
